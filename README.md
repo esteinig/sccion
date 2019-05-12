@@ -6,9 +6,9 @@
 
 ## Overview
 
-`SCCion` is a bioinformatics toolkit for genotyping of *Staphylococcus aureus* sequence data. It provides three streams for analysis of MRSA genome data: 
+`SCCion` is a bioinformatics toolkit for genotyping of *Staphylococcus aureus* sequence data. It provides three analysis streams:
 
-1. fast whole genome typing from assemblies similar to programs like `Kleborate`
+1. fast whole genome typing from assemblies similar to `Kleborate`
 2. parallelized read-to-assembly and read-genotyping pipeline in `Nextflow` 
 3. real-time `MinHash` typing of uncorrected nanopore reads with `Sketchy`
 
