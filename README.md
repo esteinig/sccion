@@ -62,7 +62,7 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ### Citations
 ---
 
-`sccion type default`:
+`sccion type assembly`:
 
 * Mash: https://github.com/marbl/Mash
 * SCC*mec*-Finder: https://bitbucket.org/genomicepidemiology/
@@ -73,5 +73,23 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 * Resfinder: https://bitbucket.org/genomicepidemiology/
 * VFDB: https://10.1093/nar/gki008
 * Plasmidfinder: https://bitbucket.org/genomicepidemiology/
+
+`sccion type nanopore`:
+
+* Mash: https://github.com/marbl/Mash
 * Nanopath @np-core: https://github.com/np-core/nanopath
 * Sketchy: https://github.com/esteinig/sketchy
+
+`sccion type nextflow illumina`:
+
+* Trimmomatic
+* Shovill
+* Prokka
+* Snippy or Spandx
+* + `sccion type assembly`
+
+`sccion type nextflow ont`:
+
+* wfdbg2
+* Nanopolish
+* + `sccion type assembly`
