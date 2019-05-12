@@ -12,7 +12,7 @@
 2. parallelized read-to-assembly and read-genotyping pipeline in `Nextflow` 
 3. real-time `MinHash` typing of uncorrected nanopore reads with `Sketchy`
 
-`SCCion` combines a variety of databases constructed during previous efforts to develop genoem typing programs specific to MRSA. As such, it is an agglomerate beast that sources from many different open-source projects. Please make sure to have a look at the `Citations` section to figure out who to pay honor and respect to, for their efforts in creating some of the underlying databases used in this program.
+`SCCion` combines a variety of databases constructed during previous efforts to develop genome typing programs specific to MRSA. As such, it is an agglomerate beast that sources from many different open-source projects. Please make sure to have a look at the `Citations` section to figure out who to pay honor and respect to, for their efforts in creating some of the underlying databases used in this program.
 
 Pre-print available on BioRxiv.
 
