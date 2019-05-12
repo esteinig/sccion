@@ -1,8 +1,14 @@
-# SCCion
+# SCCion <a href='https://github.com/esteinig'><img src='docs/img/sccion.png' align="right" height="210" /></a>
 
-SCC*mec* typing for MRSA
+![](https://img.shields.io/badge/version-0.1-blue.svg)
+![](https://img.shields.io/badge/docs-none-green.svg)
+![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 
-This is a simple program to determine staphylococcal cassette chromosome mec (SCC*mec*) types and subtypes/payloads for methicillin resistant *Staphylococcus aureus*  (MRSA) from whole genome sequencing data. The current version can distinguish main types (I - XII) from single-end and paired-end Illumina reads and from high-quality assembled genomes. Results include common payloads and assemblies can be typed for MLST.
+## Overview
+
+`SCCion` is a bioinformatics toolkit for genotypiong *Staphylococcus aureus* seqeunce data. It provides three streams for analysis: fast whole genome typing from assemblies, parallelized read-to-assembly and read-genotyping pipelien in `Nextflow` and real-time `MinHash` typing of uncorrected nanopore reads with `Sketchy`. It combines a variety of databases and fast typing algorithms. its purpiose is to enable controled and reproducible genotyping across the multitude of methods available for MRSA genomics. As such, `SCCion` is an agglomerate beast that sources from many different projects. Please make sure to have a look at the `Citations` section to figure out who to pay honor and respect to for their efforts in creating some of the underlying databases used in this program.
+
+Pre-print available on BioRxiv.
 
 ### Usage
 ---
@@ -14,21 +20,24 @@ This is a simple program to determine staphylococcal cassette chromosome mec (SC
 
 `conda install -c conda-forge -c bioconda -c esteinig sccion`
 
-### Quick Start
+### Typing
 ---
 
 ```
-# From paired-end reads:
-sccion type R1.fastq.gz R2.fastq.gz > results.json
-
 # From assembly:
-sccion type DAR4145.fasta > results.json
+sccion type reference.fasta
 
-# From assembly with MLST:
-sccion type DAR4145.fasta --mlst > results.json
+# From assemblies:
+sccion type path/to/assemblies/*.fasta
 
-# Assemble with Shovill and type from assembly:
-sccion assemble --threads 8 --assembler shovill --outdir assembly R1.fastq.gz R2.fastq.gz |
-sccion type - > results.json
+
+# From uncorrected nanopore reads
+sccion type reads.fastq --limit 1000
+
+# From uncorrected nanopore reads, live watching directory
+sccion type path/to/basecalled/fastq
+
+# Nextflow set of paired end reads on default `PBS` cluster configuration:
+nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 
 ```
