@@ -16,11 +16,6 @@
 
 Pre-print available on BioRxiv.
 
-### Docs
----
-
-[sccion.readthedocs.io](https://sccion.readthedocs.io/)
-
 ### Install
 ---
 
@@ -58,6 +53,11 @@ Nextflow set of paired end reads on default `PBS` cluster configuration:
 ```
 nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ```
+
+### Docs
+---
+
+[sccion.readthedocs.io](https://sccion.readthedocs.io/)
 
 ### Citations
 ---
