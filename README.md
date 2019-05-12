@@ -82,14 +82,15 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 
 `sccion type nextflow illumina`:
 
-* Trimmomatic
-* Shovill
-* Prokka
-* Snippy or Spandx
-* + `sccion type assembly`
+* Trimmomatic: https://10.1093/bioinformatics/btu170
+* Shovill: https://github.com/tseemann/shovill
+* Prokka: https://github.com/tseemann/prokka
+* Snippy: https://github.com/tseemann/snippy
+* Spandx: https://github.com/dsarovich/spandx
+* `sccion type assembly`
 
 `sccion type nextflow ont`:
 
-* wfdbg2
-* Nanopolish
-* + `sccion type assembly`
+* wtdbg2: https://github.com/ruanjue/wtdbg2
+* Nanopolish: https://github.com/jts/nanopolish
+* `sccion type assembly`
