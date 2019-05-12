@@ -12,7 +12,7 @@
 2. parallelized read-to-assembly and read-genotyping pipeline in `Nextflow` 
 3. real-time `MinHash` typing of uncorrected nanopore reads with `Sketchy`
 
-`SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to pay respect to to honor their efforts in creating databases used in this program.
+`SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to pay respect to for their valiant efforts in creating the databases used by `SCCion`.
 
 Pre-print available on BioRxiv.
 
