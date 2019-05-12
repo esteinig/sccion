@@ -10,7 +10,8 @@
 
 Pre-print available on BioRxiv.
 
-### Usage
+
+### Docs
 ---
 
 [sccion.readthedocs.io](https://sccion.readthedocs.io/)
@@ -20,24 +21,51 @@ Pre-print available on BioRxiv.
 
 `conda install -c conda-forge -c bioconda -c esteinig sccion`
 
-### Typing
+### Usage
 ---
 
+From assembly:
+
 ```
-# From assembly:
 sccion type reference.fasta
+```
 
-# From assemblies:
-sccion type path/to/assemblies/*.fasta
-
-
-# From uncorrected nanopore reads
-sccion type reads.fastq --limit 1000
-
-# From uncorrected nanopore reads, live watching directory
-sccion type path/to/basecalled/fastq
-
-# Nextflow set of paired end reads on default `PBS` cluster configuration:
-nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
+From assemblies:
 
 ```
+sccion type path/to/assemblies/*.fasta
+```
+
+From uncorrected nanopore reads
+
+```
+sccion type reads.fastq --limit 1000
+```
+
+From uncorrected nanopore reads, live watching directory
+
+```
+sccion type path/to/basecalled/fastq
+```
+
+Nextflow set of paired end reads on default `PBS` cluster configuration:
+
+```
+nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
+```
+
+### Citations
+---
+
+`sccion type default`:
+
+* Mash
+* SCC*mec*-Finder
+* Mykrobe
+* Ridom spa typing scheme
+* mlst
+* Abricate
+* Resfinder
+* VFDB
+* Plasmidfinder
+* Nanopath @np-core
