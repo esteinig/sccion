@@ -54,6 +54,11 @@ Nextflow set of paired end reads on default `PBS` cluster configuration:
 nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ```
 
+### Limitations
+---
+
+`SCCion` uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not have the rigorous error checking as the original implementation and for detailed typing SCC*mec*Finder should be preferred. When estimating genotypes for resistance `SCCion` draws on the standard acquired resistance gene database from `ResFinder` and then tries to strengthen its argument for a resistance phenotype by checking the assembly for genes and mutations used in the `MykrobePredictor` panel. This has the advantage of relying on Zam and his labs excellent work of checking a panel of 12 antibiotics against lab-grown resistance phenotypes. For these antibiotics the capital letters in the resistance acronym in the standard output of `SCCion`. a Since the mutation search employed by `SCCion` is prone to assembly error, results from the read typing with the actual `MykrobePredictor` should be preferred over assembly based rapid checks.
+
 ### Docs
 ---
 
@@ -65,7 +70,7 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 `sccion type assembly`:
 
 * Mash: https://github.com/marbl/Mash
-* SCC*mec*-Finder: https://bitbucket.org/genomicepidemiology/
+* SCC*mec*Finder: https://bitbucket.org/genomicepidemiology/
 * Mykrobe: https://github.com/iqbal-lab/Mykrobe-predictor
 * Ridom spa typing scheme: https://www.spaserver.ridom.de/
 * mlst: https://github.com/tseemann/mlst
