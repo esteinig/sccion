@@ -64,13 +64,14 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 
 `sccion type default`:
 
-* Mash
-* SCC*mec*-Finder
-* Mykrobe
-* Ridom spa typing scheme
-* mlst
-* Abricate
-* Resfinder
-* VFDB
-* Plasmidfinder
-* Nanopath @np-core
+* Mash: https://github.com/marbl/Mash
+* SCC*mec*-Finder: https://bitbucket.org/genomicepidemiology/
+* Mykrobe: https://github.com/iqbal-lab/Mykrobe-predictor
+* Ridom spa typing scheme: https://www.spaserver.ridom.de/
+* mlst: https://github.com/tseemann/mlst
+* Abricate: https://github.com/tseemann/abricate
+* Resfinder: https://bitbucket.org/genomicepidemiology/
+* VFDB: https://10.1093/nar/gki008
+* Plasmidfinder: https://bitbucket.org/genomicepidemiology/
+* Nanopath @np-core: https://github.com/np-core/nanopath
+* Sketchy: https://github.com/esteinig/sketchy
