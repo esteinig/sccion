@@ -12,7 +12,7 @@
 2. parallelized read-to-assembly and read-genotyping pipeline in `Nextflow` 
 3. real-time `MinHash` typing of uncorrected nanopore reads with `Sketchy`
 
-`SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to pay respect to for their valiant efforts in creating the databases used by `SCCion`.
+The last component is somewhat experimental, and should be considered a pre-release for now until `SKetchy` is more mature and has tests and stuff. However, in the few bootstrap analyses we have run on data from *S. aureus* it performed reasonably well, and specifically because we have generated an extensive *S. aureus* index for `Sketchy`. Do not rely on it for more serious matters, like clinical diagnostics. All in all, `SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to pay respect to for their valiant efforts in creating the databases used by `SCCion`.
 
 Pre-print available on BioRxiv.
 
@@ -57,7 +57,9 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ### Limitations
 ---
 
-`SCCion` uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not have the rigorous error checking as the original implementation and for detailed typing SCC*mec*Finder should be preferred. When estimating genotypes for resistance `SCCion` draws on the standard acquired resistance gene database from `ResFinder` and then tries to strengthen its argument for a resistance phenotype by checking the assembly for genes and mutations used in the `MykrobePredictor` panel. This has the advantage of relying on Zam and his labs excellent work of checking a panel of 12 antibiotics against lab-grown resistance phenotypes. For these antibiotics the capital letters in the resistance acronym in the standard output of `SCCion`. a Since the mutation search employed by `SCCion` is prone to assembly error, results from the read typing with the actual `MykrobePredictor` should be preferred over assembly based rapid checks.
+Most importantly, `SCCion` expects input that is definitely *S. aureus* or at least a Staphylococcal species (but then SCC*mec* typing and other genotypes might be off). This is also true for the real-time nanopore typing component, which will break and do all sorts of funky things if input is from species other than *S. aureus*. One can use a prefiltering step on the reads to make sure this is the case as outlined over at the repository for `Sketchy`.
+
+`SCCion` also uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not have the rigorous error checking as the original implementation and for detailed typing SCC*mec*Finder should be preferred. Furthermore, when estimating genotypes for resistance `SCCion` draws on the standard acquired resistance gene database from `ResFinder` and then tries to strengthen its argument for a resistance phenotype by checking the assembly for genes and mutations used in the `MykrobePredictor` panel. This has the advantage of relying on Zam's group for checking the predicted panel of 12 antibiotics against thousands of lab-grown resistance phenotypes. If detected, these antibiotics are highlighted with capital letters in the resistance acronym in the standard output of `SCCion`. A weak phenotype indication (assembly genotype only, not confirmed with Mykrobe panel) is acronymed with small letters. Since the mutation search employed by `SCCion` is prone to assembly error, results from the read typing with the actual `MykrobePredictor` should be preferred over assembly based rapid checks.
 
 ### Docs
 ---
