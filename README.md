@@ -12,7 +12,7 @@
 2. parallelized read-to-assembly and read-genotyping pipeline in `Nextflow` 
 3. real-time `MinHash` typing of uncorrected nanopore reads with `Sketchy`
 
-The last component is somewhat experimental, and should be considered a pre-release for now until `SKetchy` is more mature and has tests and stuff. However, in the few bootstrap analyses we have run on data from *S. aureus* it performed reasonably well, and specifically because we have generated an extensive *S. aureus* index for `Sketchy`. Do not rely on it for more serious matters, like clinical diagnostics. All in all, `SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to pay respect to for their valiant efforts in creating the databases used by `SCCion`.
+The last component is somewhat experimental, and should be considered a pre-release for now until `Sketchy` is more mature and has tests and stuff. However, in the few bootstrap analyses we have run on data from *S. aureus* it performed reasonably well, and it can be relied fairly well specifically because we have generated an extensive index of 39,000 *S. aureus* genomes for `Sketchy`. Do not rely on it for more serious matters, like clinical diagnostics. All in all, `SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to pay respect to for their valiant efforts in creating the databases used by `SCCion`.
 
 Pre-print available on BioRxiv.
 
