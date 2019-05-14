@@ -69,7 +69,9 @@ Most importantly, `SCCion` expects input that is definitely *S. aureus* or at le
 ### Citations
 ---
 
-You can output all citations in `ris` format by using:
+For the core components of `SCCion` please cite: `MASH, SCCmecFinder, Mykrobe, Sketchy, Abricate DBs` and refer to the unpublished programs by URL. For specific assembly and typing pipelines, please refer to the tables below.
+
+You can output all citations in `RIS` format by using:
 
 `sccion cite -o sccion_citations`
 
