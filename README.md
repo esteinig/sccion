@@ -69,35 +69,53 @@ Most importantly, `SCCion` expects input that is definitely *S. aureus* or at le
 ### Citations
 ---
 
+You can output all citations in `ris` format by using:
+
+`sccion cite -o sccion_citations`
+
+---
+
 `sccion type assembly`:
 
-* Mash: https://github.com/marbl/Mash
-* SCC*mec*Finder: https://bitbucket.org/genomicepidemiology/
-* Mykrobe: https://github.com/iqbal-lab/Mykrobe-predictor
-* Ridom spa typing scheme: https://www.spaserver.ridom.de/
-* mlst: https://github.com/tseemann/mlst
-* Abricate: https://github.com/tseemann/abricate
-* Resfinder: https://bitbucket.org/genomicepidemiology/
-* VFDB: https://10.1093/nar/gki008
-* Plasmidfinder: https://bitbucket.org/genomicepidemiology/
+| Program         |Author(s)                |Publication                                                       | Code                                               |
+|-----------------|-------------------------|------------------------------------------------------------------|----------------------------------------------------|
+| MASH            | Ondov et al.            |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| SCC*mec*Finder  |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Mykrobe         |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Ridom Spa       | Ondov et al.            |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| mlst            |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Abricate        |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Resfinder       | Ondov et al.            |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Plasmidfinder   |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| VFDB            |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+
 
 `sccion type nanopore`:
 
-* Mash: https://github.com/marbl/Mash
-* Nanopath @np-core: https://github.com/np-core/nanopath
-* Sketchy: https://github.com/esteinig/sketchy
+| Program         |Author(s)                |Publication                                                       | Code                                               |
+|-----------------|-------------------------|------------------------------------------------------------------|----------------------------------------------------|
+| MASH            | Ondov et al.            |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Sketchy         | Steinig et al.          |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Nanopath        | Steinig                 |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 
 `sccion type nextflow illumina`:
 
-* Trimmomatic: https://10.1093/bioinformatics/btu170
-* Shovill: https://github.com/tseemann/shovill
-* Prokka: https://github.com/tseemann/prokka
-* Snippy: https://github.com/tseemann/snippy
-* Spandx: https://github.com/dsarovich/spandx
-* `sccion type assembly`
+| Program         |Author(s)                |Publication                                                       | Code                                               |
+|-----------------|-------------------------|------------------------------------------------------------------|----------------------------------------------------|
+| Trimmomatic     |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Shovill         | Seemann et al.          |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Prokka          | Seemann                 |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Snippy          | Seemann et al.          |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| SPANDx          | Sarovich et al.         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+
 
 `sccion type nextflow ont`:
 
-* wtdbg2: https://github.com/ruanjue/wtdbg2
-* Nanopolish: https://github.com/jts/nanopolish
-* `sccion type assembly`
+| Program         |Author(s)                |Publication                                                       | Code                                               |
+|-----------------|-------------------------|------------------------------------------------------------------|----------------------------------------------------|
+| FLYE            |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| wtdbg2          |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Racon           |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Medaka          |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Nanopolish      |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+
