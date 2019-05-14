@@ -16,6 +16,11 @@ The last component is somewhat experimental, and should be considered a pre-rele
 
 Pre-print available on BioRxiv.
 
+### Docs
+---
+
+[sccion.readthedocs.io](https://sccion.readthedocs.io/)
+
 ### Install
 ---
 
@@ -54,17 +59,27 @@ Nextflow set of paired end reads on default `PBS` cluster configuration:
 nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ```
 
+### Assembly Typing
+---
+
+Assembly typing scheme.
+
+### Real-time nanopore typing with `Sketchy`
+---
+
+`Sketchy` implementation of type database.
+
+### Illumina and ONT read-to-assembly pipelines in `Nextflow`
+---
+
+`Nextflow` pipelines for short and long read genome assembly and typing.
+
 ### Limitations
 ---
 
 Most importantly, `SCCion` expects input that is definitely *S. aureus* or at least a Staphylococcal species (but then SCC*mec* typing and other genotypes might be off). This is also true for the real-time nanopore typing component, which will break and do all sorts of funky things if input is from species other than *S. aureus*. One can use a prefiltering step on the reads to make sure this is the case as outlined over at the repository for `Sketchy`.
 
 `SCCion` also uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not have the rigorous error checking as the original implementation and for detailed typing SCC*mec*Finder should be preferred. Furthermore, when estimating genotypes for resistance `SCCion` draws on the standard acquired resistance gene database from `ResFinder` and then tries to strengthen its argument for a resistance phenotype by checking the assembly for genes and mutations used in the `MykrobePredictor` panel. This has the advantage of relying on Zam's group for checking the predicted panel of 12 antibiotics against thousands of lab-grown resistance phenotypes. If detected, these antibiotics are highlighted with capital letters in the resistance acronym in the standard output of `SCCion`. A weak phenotype indication (assembly genotype only, not confirmed with Mykrobe panel) is acronymed with small letters. Since the mutation search employed by `SCCion` is prone to assembly error, results from the read typing with the actual `MykrobePredictor` should be preferred over assembly based rapid checks.
-
-### Docs
----
-
-[sccion.readthedocs.io](https://sccion.readthedocs.io/)
 
 ### Citations
 ---
