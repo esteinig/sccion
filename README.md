@@ -6,7 +6,7 @@
 
 ## Overview
 
-`SCCion` is a bioinformatics toolkit for genotyping of *Staphylococcus aureus* sequence data. It provides three analysis streams:
+`SCCion` is a genotyping toolkit for *Staphylococcus aureus* sequence data. It provides three analysis methods:
 
 1. fast whole genome typing from assemblies similar to `Kleborate`
 2. parallelized read-to-assembly and read-genotyping pipeline in `Nextflow` 
@@ -41,13 +41,13 @@ From assemblies:
 sccion type path/to/assemblies/*.fasta
 ```
 
-From uncorrected nanopore reads
+From uncorrected nanopore reads:
 
 ```
-sccion type reads.fastq --limit 1000
+sccion type reads.fq.gz --limit 1000
 ```
 
-From uncorrected nanopore reads, live watching directory
+From uncorrected nanopore reads, live run, watching directory:
 
 ```
 sccion type path/to/basecalled/fastq
@@ -59,20 +59,12 @@ Nextflow set of paired end reads on default `PBS` cluster configuration:
 nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ```
 
-### Assembly Typing
+### Modules 
 ---
 
-Assembly typing scheme.
-
-### Real-time nanopore typing with `Sketchy`
----
-
-`Sketchy` implementation of type database.
-
-### Illumina and ONT read-to-assembly pipelines in `Nextflow`
----
-
-`Nextflow` pipelines for short and long read genome assembly and typing.
+* Genome assembly typing
+* Real-time nanopore typing with `Sketchy`
+* Illumina and ONT read-to-assembly pipelines in `Nextflow`
 
 ### Limitations
 ---
@@ -84,7 +76,7 @@ Most importantly, `SCCion` expects input that is definitely *S. aureus* or at le
 ### Citations
 ---
 
-For the core components of `SCCion` please cite: `MASH, SCCmecFinder, Mykrobe, Sketchy, Abricate DBs` and refer to the unpublished programs by URL. For specific assembly and typing pipelines, please refer to the tables below.
+We rely on a host of excellent software and all too it can go unnoticed when it is wrapped into a program like `SCCion`. When using `SCCion` please also cite `MASH, SCCmecFinder, Mykrobe, Sketchy, Abricate DBs` and refer to the unpublished programs by URL. For specific assembly and typing pipelines, please refer to the tables below.
 
 You can output all citations in `RIS` format by using:
 
@@ -115,7 +107,7 @@ You can output all citations in `RIS` format by using:
 | Sketchy         | Steinig et al.          |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 | Nanopath        | Steinig                 |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 
-`sccion type nextflow illumina`:
+`sccion illumina`:
 
 | Program         |Author(s)                |Publication                                                       | Code                                               |
 |-----------------|-------------------------|------------------------------------------------------------------|----------------------------------------------------|
@@ -126,7 +118,7 @@ You can output all citations in `RIS` format by using:
 | SPANDx          | Sarovich et al.         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 
 
-`sccion type nextflow ont`:
+`sccion ont`:
 
 | Program         |Author(s)                |Publication                                                       | Code                                               |
 |-----------------|-------------------------|------------------------------------------------------------------|----------------------------------------------------|
