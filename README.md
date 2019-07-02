@@ -6,6 +6,9 @@
 
 ## Overview
 
+![](https://img.shields.io/badge/conda-standby-red.svg)
+![](https://img.shields.io/badge/release-standby-red.svg)
+
 `SCCion` is a genotyping toolkit for *Staphylococcus aureus* sequence data. It provides three analysis methods:
 
 1. fast whole genome typing from assemblies similar to `Kleborate`
@@ -14,12 +17,7 @@
 
 The last component is somewhat experimental, and should be considered a pre-release for now until `Sketchy` is more mature and has tests and stuff. However, in the few bootstrap analyses we have run on data from *S. aureus* it performed reasonably well, specifically because we have generated an extensive index of *S. aureus* genomes from the European Nucleotide Archive for `Sketchy`. Do not rely on it for more serious matters, like clinical diagnostics. All in all, `SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to pay respect to for their valiant efforts in creating the databases used by `SCCion`.
 
-Pre-print available on BioRxiv.
-
-### Docs
----
-
-[sccion.readthedocs.io](https://sccion.readthedocs.io/)
+Pre-print available on BioRxiv soon.
 
 ### Install
 ---
@@ -71,7 +69,7 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 
 Most importantly, `SCCion` expects input that is definitely *S. aureus* or at least a Staphylococcal species (but then SCC*mec* typing and other genotypes might be off). This is also true for the real-time nanopore typing component, which will break and do all sorts of funky things if input is from species other than *S. aureus*. One can use a prefiltering step on the reads to make sure this is the case as outlined over at the repository for `Sketchy`.
 
-`SCCion` also uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not have the rigorous error checking as the original implementation and for detailed typing SCC*mec*Finder should be preferred. 
+`SCCion` also uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not have the rigorous error checking as the original implementation of SCC*mec*Finder, which should be preferred for subtyping for now.
 
 ### Citations
 ---
