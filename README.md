@@ -9,20 +9,19 @@
 ![](https://img.shields.io/badge/conda-standby-red.svg)
 ![](https://img.shields.io/badge/release-standby-red.svg)
 
-`SCCion` is a genotyping toolkit for *Staphylococcus aureus* sequence data. It provides three analysis methods:
+`SCCion` is a genotyping toolkit for *Staphylococcus aureus* sequence data. It provides two common analysis methods:
 
 1. fast whole genome typing from assemblies similar to `Kleborate`
 2. parallelized read-to-assembly and read-genotyping pipeline in `Nextflow` 
-3. real-time `MinHash` typing of uncorrected nanopore reads with `Sketchy`
 
-The last component is somewhat experimental, and should be considered a pre-release for now until `Sketchy` is more mature and has tests and stuff. However, in the few bootstrap analyses we have run on data from *S. aureus* it performed reasonably well, specifically because we have generated an extensive index of *S. aureus* genomes from the European Nucleotide Archive for `Sketchy`. Do not rely on it for more serious matters, like clinical diagnostics. All in all, `SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to pay respect to for their valiant efforts in creating the databases used by `SCCion`.
+`SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to thank for their efforts in creating the databases used by `SCCion`.
 
-Pre-print available on BioRxiv soon.
+Pre-print might live on BioRxiv.
 
 ### Install
 ---
 
-`conda install -c conda-forge -c bioconda -c esteinig sccion`
+`conda install -c bioconda -c esteinig sccion`
 
 ### Usage
 ---
@@ -50,8 +49,7 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ### Modules 
 ---
 
-* Genome assembly typing
-* Real-time nanopore typing with `Sketchy` 
+* Genome assembly typing with `SCCion` wrappers
 * Illumina and ONT read-to-assembly pipelines in `Nextflow`
 
 ### Limitations
@@ -64,11 +62,11 @@ Most importantly, `SCCion` expects input that is definitely *S. aureus* or at le
 ### Citations
 ---
 
-We rely on a host of excellent software and all too it can go unnoticed when it is wrapped into a program like `SCCion`. When using `SCCion` please also cite `MASH, SCCmecFinder, Mykrobe, Sketchy, Abricate DBs` and refer to the unpublished programs by URL. For specific assembly and typing pipelines, please refer to the tables below.
+We rely on a host of excellent software and all too often it can go unnoticed when wrapped into a program like `SCCion`. When using `SCCion` please also cite `MASH, SCCmecFinder, Mykrobe, Sketchy, Abricate DBs` and refer to the unpublished programs by URL. For specific assembly and typing pipelines, please refer to the tables below.
 
 You can output all citations in `RIS` format by using:
 
-`sccion cite -o sccion_citations`
+`sccion cite -o outdir/`
 
 ---
 
