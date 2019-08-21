@@ -40,6 +40,8 @@ sccion type path/to/assemblies/*.fasta
 
 From uncorrected nanopore reads, see [`Sketchy`](https://github.com/esteinig/sketchy).
 
+**Next release**:
+
 Nextflow set of PE Illumina reads on default `PBS` configuration profile `cluster`:
 
 ```
