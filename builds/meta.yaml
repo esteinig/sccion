@@ -1,11 +1,11 @@
-{% set version = "0.1.a2" %}
+{% set version = "0.1.a3" %}
 
 package:
   name: sccion
   version: {{ version }}
 
 source:
-  url: https://github.com/esteinig/sketchy/archive/v{{ version }}.tar.gz # [linux64,linux32]
+  url: https://github.com/esteinig/sccion/archive/v{{ version }}.tar.gz # [linux64,linux32]
 
 build:
   number: 0
