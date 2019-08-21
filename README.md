@@ -33,7 +33,7 @@ sccion type assembly.fasta
 From assemblies:
 
 ```
-sccion type path/to/assemblies/*.fasta
+sccion type *.fasta
 ```
 
 From uncorrected nanopore reads, see [`Sketchy`](https://github.com/esteinig/sketchy).
