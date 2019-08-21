@@ -20,6 +20,6 @@ setup(
     version="0.1",
     license="MIT",
     description="""
-        Whole genome and real-time nanopore typing for Staphylococcus aureus
+        Whole genome typing and assembly pipelines for Staphylococcus aureus
     """,
 )

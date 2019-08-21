@@ -1,0 +1,51 @@
+{% set version = "0.1.a1" %}
+
+package:
+  name: sketchy
+  version: {{ version }}
+
+source:
+  url: https://github.com/esteinig/sketchy/archive/v{{ version }}.tar.gz # [linux64,linux32]
+
+build:
+  number: 0
+  script: python -m pip install . -vv
+
+requirements:
+  build:
+      - {{ compiler('cxx') }}
+  host:
+      - python >=3.7
+      - pip
+      - mash
+      - pandas
+      - click
+      - pytest
+      - mlst
+      - abricate
+      - assembly-stats
+  run:
+      - python >=3.7
+      - pip
+      - mash
+      - pandas
+      - click
+      - pytest
+      - mlst
+      - abricate
+      - assembly-stats
+
+test:
+  commands:
+      - sccion --help
+      - mash dist -h
+      - mlst -h
+      - abricate -h
+
+
+about:
+  home: 'https://github.com/esteinig/sccion'
+  license: MIT
+  license_file: LICENSE
+  summary: 'Whole genome typing and assembly pipelines for Staphylococcus aureus'
+

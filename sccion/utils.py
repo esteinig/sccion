@@ -90,7 +90,7 @@ def _get_contig_n50(output):
 
 def run_mash_dist(
         fasta: Path,
-        db: Path = Path(__file__).parent / 'db' / 'refseq.msh',
+        db: Path = Path(__file__).parent / 'db' / 'staphylococci.msh',
         threads: int = 8
 ):
 

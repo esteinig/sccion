@@ -1,6 +1,5 @@
 from pathlib import Path
 from sccion.sccion import SCCion
-
 sccion1 = SCCion(
     fasta=Path() / 'tests' / 'data' / 'm03.fasta'
 )
@@ -13,4 +12,7 @@ sccion2 = SCCion(
 
 sccion2.type_assembly()
 
+for path in (Path() / 'test_data').glob('*.fasta'):
+    sccion3 = SCCion(fasta=path)
+    sccion3.type_assembly()
 

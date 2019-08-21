@@ -1,6 +1,5 @@
 from sccion.utils import run_assembly_stats
 from sccion.type import SpaType, MLST, Species, VirDB, ResDB, MGE, SCCmec
-from pathlib import Path
 
 from sccion.type import SpaType
 from pathlib import Path
@@ -12,10 +11,10 @@ class SCCion:
 
     def __init__(
         self,
+        fasta: Path = None,
+        outdir=None,
         forward: Path = None,
         reverse: Path = None,
-        fasta: Path = None,
-        outdir=None
     ):
 
         self.forward = forward
@@ -26,16 +25,14 @@ class SCCion:
 
         # Isolate genotype
         self.genotype = {
-            'id': 'SRR3647382',
-            'species': '',
-            'mlst': '',
-            'type': '',
-            'sccmec': '',
+            'id': str(),
+            'species': str(),
+            'mlst': str(),
+            'type': str(),
+            'sccmec': str(),
             'pvl': True,
-            'spa': '',
-            'agr': '',
-            'egc': '',
-            'scc': '',
+            'spa': str(),
+            'agr': str(),
         }
 
         # Assembly statistics
@@ -71,7 +68,11 @@ class SCCion:
             'other': dict(),
         }
 
-    def type_assembly(self):
+    def type_assembly(
+        self,
+        min_identity: float = 0.9,
+        min_coverage: float = 0.7
+    ):
 
         """ Access method for typing whole genome assemblies """
 
@@ -81,27 +82,52 @@ class SCCion:
         self.genotype['spa'] = getattr(
             SpaType(fasta=self.fasta), 'spa_type'
         )
-
         self.genotype['mlst'] = getattr(
             MLST(fasta=self.fasta), 'mlst'
         )
-
         self.genotype['species'] = getattr(
             Species(fasta=self.fasta), 'scientific_name'
         )
-        resdb = ResDB(fasta=self.fasta)
+
+        resdb = ResDB(
+            fasta=self.fasta,
+            min_identity=min_identity,
+            min_coverage=min_identity,
+        )
+
         self.resistance['acquired'] = getattr(resdb, 'acquired')
         self.genotype['type'] = getattr(resdb, 'type')
 
-        virdb = VirDB(fasta=self.fasta)
+        virdb = VirDB(
+            fasta=self.fasta,
+            min_identity=min_identity,
+            min_coverage=min_identity,
+        )
+
         self.resistance['virulence'] = getattr(virdb, 'virulence')
         self.genotype['pvl'] = getattr(virdb, 'pvl')
 
-        mge = MGE(fasta=self.fasta)
+        mge = MGE(
+            fasta=self.fasta,
+            db='plasmidfinder',
+            min_identity=min_identity,
+            min_coverage=min_identity,
+        )
+
         self.mge['plasmids'] = getattr(mge, 'plasmids')
 
-        sccmec = SCCmec(fasta=self.fasta)
-        self.genotype['sccmec'] = getattr(sccmec, 'sccmec')
+        sccmec = SCCmec(
+            fasta=self.fasta
+        )
+
+        if resdb.type == "MRSA":
+            # Only if mecA detected get SCCmec - crude filter for now
+            self.genotype['sccmec'] = getattr(sccmec, 'sccmec')
+        else:
+            self.genotype['sccmec'] = '-'
+
+        if self.genotype['species'] != 'Staphylococcus aureus':
+            self.genotype['type'] = "-"
 
         print(
             f'{self.fasta.name}\t'
@@ -114,7 +140,6 @@ class SCCion:
             f'{";".join(self.resistance["acquired"])}\t',
             f'{";".join(self.mge["plasmids"])}'
         )
-
 
     # Private methods for assembly genotyping
 

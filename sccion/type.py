@@ -2,6 +2,7 @@ import sys
 from itertools import groupby
 from pathlib import Path
 from sccion.utils import run_mlst, run_mash_dist, run_abricate
+import pandas
 
 
 class MGE:
@@ -147,7 +148,6 @@ class ResDB:
                self.acquired_table['gene'].to_list() \
             else 'MSSA'
 
-
     def _get_mutations(self):
         pass
 
@@ -160,9 +160,18 @@ class Species:
         fasta: Path,
     ):
 
-        self.scientific_name = run_mash_dist(
-            fasta
+        self.mash_index = pandas.read_csv(
+            Path(__file__).parent / 'db' / 'staphylococci.index', sep='\t',
+            header=0
         )
+
+        hash_id = run_mash_dist(
+            fasta=fasta, db=Path(__file__).parent / 'db' / 'staphylococci.msh'
+        )
+
+        self.scientific_name = self.mash_index.loc[
+            self.mash_index['ID'].str.contains(hash_id), 'Comment'
+        ].to_string(index=False).strip()
 
 
 class MLST:
@@ -174,7 +183,6 @@ class MLST:
     ):
 
         _, self.species, self.mlst, self.alleles = run_mlst(fasta)
-
 
 
 class SpaType:
@@ -190,7 +198,11 @@ class SpaType:
         self.spa_repeat_file = spa_repeat_file
         self.spa_type_file = spa_type_file
 
-        self.spa_repeat, self.spa_type = self._get_spa_type()
+        spa_type = self._get_spa_type()
+        if len(spa_type) == 2:
+            self.spa_repeat, self.spa_type = spa_type[0], spa_type[1]
+        else:
+            self.spa_repeat, self.spa_type = None, None
 
     def _get_spa_type(self):
 
@@ -375,7 +387,7 @@ class SpaType:
             return ['no enriched sequence.']
         if len(seq_list) > 1:
             sys.stderr.write(
-                'More than one enriched sequence in ' + infile + '\n'
+                'More than one enriched sequence in ' + str(infile) + '\n'
             )
         rep_list = []
         for i in seq_list:

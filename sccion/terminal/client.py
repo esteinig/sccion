@@ -1,5 +1,7 @@
 import click
 
+from .type import type
+
 VERSION = '0.1'
 
 @click.group()
@@ -8,4 +10,4 @@ def terminal_client():
     pass
 
 
-# terminal_client.add_command()
+terminal_client.add_command(type)
