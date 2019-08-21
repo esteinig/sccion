@@ -1,7 +1,7 @@
-{% set version = "0.1.a1" %}
+{% set version = "0.1.a2" %}
 
 package:
-  name: sketchy
+  name: sccion
   version: {{ version }}
 
 source:
