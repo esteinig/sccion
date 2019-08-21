@@ -9,8 +9,8 @@
 
 `SCCion` is a genotyping toolkit for *Staphylococcus aureus* sequence data. It provides two common analysis methods:
 
-1. fast whole genome typing from assemblies similar to `Kleborate`
-2. distributed read-to-assembly and genotyping pipeline in `Nextflow` 
+1. fast whole genome typing from assemblies similar to [`Kleborate`](https://github.com/katholt/Kleborate)
+2. distributed read-to-assembly and genotyping pipeline in [`Nextflow`](https://nextflow.io/)
 
 `SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to thank for their efforts in creating the databases used by `SCCion`.
 
