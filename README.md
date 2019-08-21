@@ -30,7 +30,7 @@ Pre-print available on BioRxiv soon.
 From assembly:
 
 ```
-sccion type reference.fasta
+sccion type assembly.fasta
 ```
 
 From assemblies:
@@ -39,19 +39,9 @@ From assemblies:
 sccion type path/to/assemblies/*.fasta
 ```
 
-From uncorrected nanopore reads:
+From uncorrected nanopore reads, see [`Sketchy`](https://github.com/esteinig/sketchy).
 
-```
-sccion type reads.fq.gz --limit 1000
-```
-
-From uncorrected nanopore reads, live run, watching directory:
-
-```
-sccion type path/to/basecalled/fastq
-```
-
-Nextflow set of paired end reads on default `PBS` cluster configuration:
+Nextflow set of PE Illumina reads on default `PBS` configuration profile `cluster`:
 
 ```
 nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
@@ -61,7 +51,7 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ---
 
 * Genome assembly typing
-* Real-time nanopore typing with `Sketchy`
+* Real-time nanopore typing with `Sketchy` 
 * Illumina and ONT read-to-assembly pipelines in `Nextflow`
 
 ### Limitations
@@ -96,15 +86,6 @@ You can output all citations in `RIS` format by using:
 | Plasmidfinder   |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 | VFDB            |                         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 
-
-`sccion type nanopore`:
-
-| Program         |Author(s)                |Publication                                                       | Code                                               |
-|-----------------|-------------------------|------------------------------------------------------------------|----------------------------------------------------|
-| MASH            | Ondov et al.            |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
-| Sketchy         | Steinig et al.          |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
-| Nanopath        | Steinig                 |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
-
 `sccion illumina`:
 
 | Program         |Author(s)                |Publication                                                       | Code                                               |
@@ -113,8 +94,8 @@ You can output all citations in `RIS` format by using:
 | Shovill         | Seemann et al.          |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 | Prokka          | Seemann                 |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 | Snippy          | Seemann et al.          |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
+| Mykrobe         | Bradley et al.          |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
 | SPANDx          | Sarovich et al.         |![](https://img.shields.io/badge/pub-ncbi-blue.svg)               |![](https://img.shields.io/badge/src-ncbi-green.svg)|
-
 
 `sccion ont`:
 
