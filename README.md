@@ -3,11 +3,9 @@
 ![](https://img.shields.io/badge/version-0.1-blue.svg)
 ![](https://img.shields.io/badge/docs-none-green.svg)
 ![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
+![](https://img.shields.io/badge/conda-v0.1.a4-green.svg)
 
 ## Overview
-
-![](https://img.shields.io/badge/conda-standby-red.svg)
-![](https://img.shields.io/badge/release-standby-red.svg)
 
 `SCCion` is a genotyping toolkit for *Staphylococcus aureus* sequence data. It provides two common analysis methods:
 
