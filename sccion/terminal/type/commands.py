@@ -10,16 +10,8 @@ from sccion.sccion import SCCion
     help="Assembly file (.fasta) or glob to assembly files (*.fasta)"
 )
 @click.option(
-    "--resistance", "-r", is_flag=True,
-    help="Enable output of abbreviated resistance genes and mutations",
-)
-@click.option(
-    "--virulence", "-v", is_flag=True,
-    help="Enable output of abbreviated virulence factors",
-)
-@click.option(
-    "--mge", "-m", is_flag=True,
-    help="Enable advanced detection and typing of mobile elements",
+    "--phenotype", "-p", is_flag=True,
+    help="Show inferred resistance phenotypes instead of genes",
 )
 @click.option(
     "--min_coverage", "-mc", default=0.7, type=float,
@@ -29,7 +21,7 @@ from sccion.sccion import SCCion
     "--min_identity", "-mi", default=0.9, type=float,
     help="Minimum identity for hits against databases for assembly typing"
 )
-def type(assemblies, min_coverage, min_identity, resistance, virulence, mge):
+def type(assemblies, min_coverage, min_identity, phenotype):
 
     if Path(assemblies).is_file():
 
@@ -39,7 +31,8 @@ def type(assemblies, min_coverage, min_identity, resistance, virulence, mge):
 
         sccion.type_assembly(
             min_coverage=min_coverage,
-            min_identity=min_identity
+            min_identity=min_identity,
+            phenotype=phenotype
         )
 
     elif '*' in assemblies:

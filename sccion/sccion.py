@@ -71,7 +71,8 @@ class SCCion:
     def type_assembly(
         self,
         min_identity: float = 0.9,
-        min_coverage: float = 0.7
+        min_coverage: float = 0.7,
+        phenotype: bool = True,
     ):
 
         """ Access method for typing whole genome assemblies """
@@ -95,7 +96,11 @@ class SCCion:
             min_coverage=min_identity,
         )
 
-        self.resistance['acquired'] = getattr(resdb, 'acquired')
+        if not phenotype:
+            self.resistance['acquired'] = getattr(resdb, 'acquired')
+        else:
+            self.resistance['acquired'] = getattr(resdb, 'resistance')
+
         self.genotype['type'] = getattr(resdb, 'type')
 
         virdb = VirDB(

@@ -138,11 +138,11 @@ def run_mlst(fasta):
 
 
 def run_abricate(
-        fasta: Path,
-        db: str = 'resfinder',
-        threads: int = 2,
-        min_identity: float = 0.9,
-        min_coverage: float = 0.7,
+    fasta: Path,
+    db: str = 'resfinder',
+    threads: int = 2,
+    min_identity: float = 0.9,
+    min_coverage: float = 0.7,
 ):
     """ Run tseemann/abricate """
 
@@ -162,6 +162,7 @@ def run_abricate(
             'sequence',
             'start',
             'end',
+            'strand',
             'gene',
             'coverage',
             'coverage_map',
@@ -170,7 +171,8 @@ def run_abricate(
             'identity',
             'database',
             'accession',
-            'product'
+            'product',
+            'resistance',
         ])
 
         return df

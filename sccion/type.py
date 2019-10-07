@@ -124,7 +124,7 @@ class ResDB:
         self.min_identity = min_identity
         self.min_coverage = min_coverage
 
-        self.acquired, self.type = self._get_acquired_resistance()
+        self.acquired, self.type, self.resistance = self._get_acquired_resistance()
 
     def _get_acquired_resistance(self):
 
@@ -135,11 +135,15 @@ class ResDB:
             min_coverage=self.min_coverage,
         )
 
-        self.acquired_table['gene'] = [
-            gene.split('_')[0] for gene in self.acquired_table['gene']
-        ]
+        products = self.acquired_table['product'].unique().tolist()
 
-        return self.acquired_table['gene'].to_list(), self._get_type_status()
+        phenotypes = []
+        for res in self.acquired_table['resistance']:
+            for r in res.split(';'):
+                if r not in phenotypes:
+                    phenotypes.append(r)
+
+        return products, self._get_type_status(), sorted(phenotypes)
 
     def _get_type_status(self):
 
