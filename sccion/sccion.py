@@ -37,10 +37,10 @@ class SCCion:
 
         # Assembly statistics
         self.assembly = {
-            'contigs': 50,
-            'average_contig': 143000,
-            'largest_contig': 150000,
-            'n50': 50000,
+            'contigs': 0,
+            'average_contig': 0,
+            'largest_contig': 0,
+            'n50': 0,
         }
 
         # Scores
