@@ -1,18 +1,15 @@
 # SCCion <a href='https://github.com/esteinig'><img src='docs/img/sccion.png' align="right" height="210" /></a>
 
-![](https://img.shields.io/badge/version-0.1-blue.svg)
-![](https://img.shields.io/badge/docs-none-green.svg)
+![](https://img.shields.io/badge/conda-v0.1.a4-green.svg)
+![](https://img.shields.io/badge/docs-github-blue.svg)
 ![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 
 ## Overview
 
-![](https://img.shields.io/badge/conda-standby-red.svg)
-![](https://img.shields.io/badge/release-standby-red.svg)
+`SCCion` is a genotyping toolkit for *Staphylococcus aureus* sequence reads and assemblies. It wraps multiple disjointed genotyping schemes and provides two common analysis methods:
 
-`SCCion` is a genotyping toolkit for *Staphylococcus aureus* sequence data. It provides two common analysis methods:
-
-1. fast whole genome typing from assemblies similar to `Kleborate`
-2. parallelized read-to-assembly and read-genotyping pipeline in `Nextflow` 
+1. fast whole genome typing from assemblies similar to [`Kleborate`](https://github.com/katholt/Kleborate)
+2. distributed read-to-assembly and genotyping pipeline in [`Nextflow`](https://nextflow.io/)
 
 `SCCion` combines a variety of databases sourced from many different open-source projects. Please make sure to have a look at the `Citations` section to see who to thank for their efforts in creating the databases used by `SCCion`.
 
@@ -35,7 +32,7 @@ sccion type assembly.fasta
 From assemblies:
 
 ```
-sccion type path/to/assemblies/*.fasta
+sccion type *.fasta
 ```
 
 From uncorrected nanopore reads, see [`Sketchy`](https://github.com/esteinig/sketchy).
@@ -57,7 +54,7 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ### Limitations
 ---
 
-Most importantly, `SCCion` expects input that is definitely *S. aureus* or at least a Staphylococcal species (but then SCC*mec* typing and other genotypes might be off). This is also true for the real-time nanopore typing component, which will break and do all sorts of funky things if input is from species other than *S. aureus*. One can use a prefiltering step on the reads to make sure this is the case as outlined over at the repository for `Sketchy`.
+`SCCion` expects input that is definitely *S. aureus* or at least a Staphylococcal species (but then SCC*mec* typing and other genotypes might be off).
 
 `SCCion` also uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not have the rigorous error checking as the original implementation of SCC*mec*Finder, which should be preferred for subtyping for now.
 
