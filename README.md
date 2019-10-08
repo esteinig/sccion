@@ -1,6 +1,6 @@
 # SCCion <a href='https://github.com/esteinig'><img src='docs/img/sccion.png' align="right" height="210" /></a>
 
-![](https://img.shields.io/badge/conda-v0.1.a6-green.svg)
+![](https://img.shields.io/badge/conda-v0.1.a8-green.svg)
 ![](https://img.shields.io/badge/docs-github-blue.svg)
 ![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 
@@ -26,13 +26,13 @@ Pre-print might live on BioRxiv.
 From assembly:
 
 ```
-sccion type assembly.fasta
+sccion type -a assembly.fasta
 ```
 
 From assemblies:
 
 ```
-sccion type *.fasta
+sccion type -a *.fasta
 ```
 
 From uncorrected nanopore reads, see [`Sketchy`](https://github.com/esteinig/sketchy).
