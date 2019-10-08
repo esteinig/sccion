@@ -54,14 +54,14 @@ nextflow pf-core/pf-sccion -profile cluster --fastq path/to/fastq/*.fq.gz
 ### Limitations
 ---
 
-`SCCion` expects input that is definitely *S. aureus* or at least a Staphylococcal species (but then SCC*mec* typing and other genotypes might be off).
+`SCCion` expects input that is definitely *S. aureus* or at least a Staphylococcal species, but then SCC*mec* typing might be off.
 
-`SCCion` also uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not have the rigorous error checking as the original implementation of SCC*mec*Finder, which should be preferred for subtyping for now.
+`SCCion` also uses a simple `MinHash` matching with `MASH` against the small database of whole SCC*mec* cassette types collected by the authors of SCC*mec*Finder. It does not infer subtypes and does not have the rigorous error checking as the original implementation of SCC*mec*Finder.
 
 ### Citations
 ---
 
-We rely on a host of excellent software and all too often it can go unnoticed when wrapped into a program like `SCCion`. When using `SCCion` please also cite `MASH, SCCmecFinder, Mykrobe, Sketchy, Abricate DBs` and refer to the unpublished programs by URL. For specific assembly and typing pipelines, please refer to the tables below.
+We rely on a host of excellent software and all too often it can go unnoticed when wrapped into a program like `SCCion`. When using `SCCion` please also cite `MASH, SCCmecFinder, Abricate DBs` and refer to the unpublished programs by URL. For specific assembly and typing pipelines, please refer to the tables below.
 
 You can output all citations in `RIS` format by using:
 
