@@ -1,4 +1,4 @@
-{% set version = "0.1.a7" %}
+{% set version = "0.1.a8" %}
 
 package:
   name: sccion
