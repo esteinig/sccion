@@ -51,9 +51,9 @@ class SCCmec:
         db: Path = Path(__file__).parent / 'db' / 'sccmec.msh'
     ):
 
-        self.sccmec = "; subtype: ".join(
-            run_mash_dist(fasta=fasta, db=db).split('|')[:2]
-        )
+        self.sccmec = run_mash_dist(
+            fasta=fasta, db=db
+        ).split('|')[0].split('(')[0].replace('_type_', '-')
 
 
 class VirDB:
@@ -149,7 +149,7 @@ class ResDB:
 
         return 'MRSA' \
             if 'mecA' in \
-               self.acquired_table['gene'].to_list() \
+               self.acquired_table['product'].to_list() \
             else 'MSSA'
 
     def _get_mutations(self):
