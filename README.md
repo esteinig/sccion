@@ -1,6 +1,6 @@
 # SCCion <a href='https://github.com/esteinig'><img src='docs/img/sccion.png' align="right" height="210" /></a>
 
-![](https://img.shields.io/badge/conda-v0.1.a4-green.svg)
+![](https://img.shields.io/badge/conda-v0.1.a6-green.svg)
 ![](https://img.shields.io/badge/docs-github-blue.svg)
 ![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 
